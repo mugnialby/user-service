@@ -1,0 +1,2 @@
+cd E:/Alby/go/bin
+./CompileDaemon -directory="E:/Alby/go/src/github.com/mugnialby/user-service/" -command="E:/Alby/go/src/github.com/mugnialby/user-service/user-service"

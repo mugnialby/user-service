@@ -1,0 +1,12 @@
+app:
+  port: 8000
+database :
+  host: localhost
+  user: postgres
+  password: root
+  dbname: users
+  port: 5432
+  sslmode: disable
+  timeZone: Asia/Jakarta
+  maxIdleConnection: 3
+  maxOpenConnection: 1
