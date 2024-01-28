@@ -15,12 +15,16 @@ func Validate(request interface{}) (bool, string) {
 			if errors, ok := err.(validator.ValidationErrors); ok {
 				var message strings.Builder
 				for _, e := range errors {
-					message.WriteString("Field: ")
-					message.WriteString(e.Field())
-					message.WriteString(", ")
-					message.WriteString("Error: ")
-					message.WriteString(e.Error())
-					message.WriteString("\n")
+					message.WriteString(strings.ToLower(e.Field()))
+					switch e.Tag() {
+					case "required":
+						message.WriteString(" harus di isi")
+					case "max":
+						message.WriteString(" tidak boleh lebih dari ")
+						message.WriteString(e.Param())
+					}
+
+					break
 				}
 
 				return false, message.String()
